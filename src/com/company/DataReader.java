@@ -30,7 +30,7 @@ public class DataReader {
         }
         for(int i=0; i<r1.size(); i++)
         {
-            System.out.println(r1.get());
+//            System.out.println(r1.get());
         }
 
     }
