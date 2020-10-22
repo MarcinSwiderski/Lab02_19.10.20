@@ -15,22 +15,21 @@ public class DataReader {
             while (s.hasNext()) {
                 Row r = new Row();
                 r.setNumber(s.nextInt());
+                r.setName(s.next());
                 String[] listaDodatkow = s.next().split(",");
                 for(String str : listaDodatkow) {
-                    //field in not yet existing class
                     r.getTopingsList().add(Integer.parseInt(str.trim()));
-                    //alternative implementation
                 }
                 r1.add(r);
             }
         }
         catch (FileNotFoundException e ) {
             e.printStackTrace();
-            System.out.printf("EEE");
+            System.out.print("EEE");
         }
         for(int i=0; i<r1.size(); i++)
         {
-            System.out.println(r1.get());
+            System.out.println(r1.get(i));
         }
 
     }
