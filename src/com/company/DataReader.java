@@ -64,7 +64,7 @@ public class DataReader {
 //        Humor(utwory,goscie);
     }
 
-    public void Humor(List<Row> u, List<Row> g) {
+    public void Humor(List<Utwory> u, List<Goscie> g) {
         {
 ////            System.out.println("XD1");
 //            for (Row x : u) {

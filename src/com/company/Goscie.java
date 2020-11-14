@@ -3,14 +3,6 @@ package com.company;
 import java.util.*;
 
 public class Goscie {
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     private int id;
     private  List<Integer> topingsList = new ArrayList<Integer>();
     private  List<String> musicNameList = new ArrayList<String>();
@@ -45,7 +37,13 @@ public class Goscie {
     public List<Integer> getMinNiezadowolenie() {
         return minNiezadowolenie;
     }
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
     public void setNameAndTime(String x,Integer y) {
 //        Map<String,Integer> i = new HashMap<>();
         nameAndTime.put(x,y);
