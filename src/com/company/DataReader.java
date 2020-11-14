@@ -6,8 +6,8 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class DataReader {
-    List<Row> utwory = new LinkedList<Row>();
-    List<Row> goscie = new LinkedList<Row>();
+    List<Utwory> utwory = new LinkedList<Utwory>();
+    List<Goscie> goscie = new LinkedList<Goscie>();
 
     public void DataReaderUtworow(String fileName) {
         try (Scanner s = new Scanner(new File(fileName))) {
@@ -15,14 +15,13 @@ public class DataReader {
             if (fileName == "listaUtworow") {
                 s.useDelimiter(";|\\r?\\n|\\r|\\|");
                 while (s.hasNext()) {
-                    Row r = new Row();
+                    Utwory r = new Utwory();
                     r.setId(s.nextInt());
                     r.setName(s.next());
                     r.getTopingsList().add(s.nextInt());
 //                                        System.out.println(s.next());
 //                    String[] listaDodatkow = s.next().split(",");
 //                    for (String str : listaDodatkow) {
-
 //                    }
                     utwory.add(r);
                 }
@@ -34,14 +33,14 @@ public class DataReader {
         }
     }
 
-    public void DataReaderGosci(String fileName) {
+    public void dataReaderGosci(String fileName) {
         try (Scanner s = new Scanner(new File(fileName))) {
             s.nextLine();
             s.useDelimiter(";|\\|");
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 Scanner lineScanner = new Scanner(line);
-                Row r = new Row();
+                Goscie r = new Goscie();
                 lineScanner.useDelimiter(";|\\|");
                 r.setId(lineScanner.nextInt());
 //                    System.out.println(lineScanner.next());
@@ -67,23 +66,23 @@ public class DataReader {
 
     public void Humor(List<Row> u, List<Row> g) {
         {
-//            System.out.println("XD1");
-            for (Row x : u) {
-//                System.out.println("XD2");
-                for (Row v : g) {
-//                    System.out.println("X3");
-                    for (int i = 0; i < v.getLikedMusicNameList().size(); i++){
-//                        goscie.get(i).getNameAndTime().forEach((k,y) ->
-//                                v.getMaxZadowolenie().add((v.getTopingsList().get(i) - v.minimalMultiplayer())));
-                        System.out.println(v.getLikedMusicNameList().get(i));
-                        if (x.getName().equals(v.getLikedMusicNameList().get(i))) {
-                            System.out.println(x.getName());
-                            v.getMaxZadowolenie().add((v.getTopingsList().get(i) - v.minimalMultiplayer()));
-                            System.out.println(v.getMaxZadowolenie().get(i+1));
-                        }
-                }
-                }
-            }
+////            System.out.println("XD1");
+//            for (Row x : u) {
+////                System.out.println("XD2");
+//                for (Row v : g) {
+////                    System.out.println("X3");
+//                    for (int i = 0; i < v.getLikedMusicNameList().size(); i++){
+////                        goscie.get(i).getNameAndTime().forEach((k,y) ->
+////                                v.getMaxZadowolenie().add((v.getTopingsList().get(i) - v.minimalMultiplayer())));
+//                        System.out.println(v.getLikedMusicNameList().get(i));
+//                        if (x.getName().equals(v.getLikedMusicNameList().get(i))) {
+//                            System.out.println(x.getName());
+////                            v.getMaxZadowolenie().add((v.getTopingsList().get(i) - v.minimalMultiplayer()));
+//                            System.out.println(v.getMaxZadowolenie().get(i+1));
+//                        }
+//                }
+//                }
+//            }
+//        }
         }
-    }
-}
+    }}
