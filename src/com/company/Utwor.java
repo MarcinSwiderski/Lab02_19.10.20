@@ -3,12 +3,15 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Utwory {
+public class Utwor {
     private int id;
     private String name;
-    private List<Integer> topingsList = new ArrayList<Integer>();
+    private int topingsList;
 
-    public List<Integer> getTopingsList() {
+    public void setTopingsList(int topingsList) {
+        this.topingsList = topingsList;
+    }
+    public int getTopingsList() {
         return topingsList;
     }
     public int getId() {

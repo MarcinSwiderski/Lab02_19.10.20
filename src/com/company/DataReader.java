@@ -6,19 +6,19 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class DataReader {
-    List<Utwory> utwory = new LinkedList<Utwory>();
-    List<Goscie> goscie = new LinkedList<Goscie>();
+    List<Utwor> utwory = new LinkedList<Utwor>();
+    List<Gosc> goscie = new LinkedList<Gosc>();
 
-    public void DataReaderUtworow(String fileName) {
+    public void dataReaderUtworow(String fileName) {
         try (Scanner s = new Scanner(new File(fileName))) {
             s.nextLine();
             if (fileName == "listaUtworow") {
                 s.useDelimiter(";|\\r?\\n|\\r|\\|");
                 while (s.hasNext()) {
-                    Utwory r = new Utwory();
+                    Utwor r = new Utwor();
                     r.setId(s.nextInt());
                     r.setName(s.next());
-                    r.getTopingsList().add(s.nextInt());
+                    r.setTopingsList(s.nextInt());
 //                                        System.out.println(s.next());
 //                    String[] listaDodatkow = s.next().split(",");
 //                    for (String str : listaDodatkow) {
@@ -40,7 +40,7 @@ public class DataReader {
             while (s.hasNextLine()) {
                 String line = s.nextLine();
                 Scanner lineScanner = new Scanner(line);
-                Goscie r = new Goscie();
+                Gosc r = new Gosc();
                 lineScanner.useDelimiter(";|\\|");
                 r.setId(lineScanner.nextInt());
 //                    System.out.println(lineScanner.next());
@@ -61,10 +61,10 @@ public class DataReader {
 //        System.out.println(goscie.get(0).getLikedMusicNameList());
     }
     public void Execute(){
-//        Humor(utwory,goscie);
+        Humor(utwory, goscie);
     }
 
-    public void Humor(List<Utwory> u, List<Goscie> g) {
+    public void Humor(List<Utwor> u, List<Gosc> g) {
         {
 ////            System.out.println("XD1");
 //            for (Row x : u) {

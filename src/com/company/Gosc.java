@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.*;
 
-public class Goscie {
+public class Gosc {
     private int id;
     private  List<Integer> topingsList = new ArrayList<Integer>();
     private  List<String> musicNameList = new ArrayList<String>();
@@ -11,8 +11,6 @@ public class Goscie {
     private  List<Integer> minZadowolenie = new ArrayList<Integer>();
     private  List<Integer> maxNiezadowolenie = new ArrayList<Integer>();
     private  List<Integer> minNiezadowolenie = new ArrayList<Integer>();
-
-
 
     public int minimalMultiplayer(){
         List<Integer> sortedList = getTopingsList();
