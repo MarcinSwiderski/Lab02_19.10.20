@@ -38,9 +38,17 @@ public class Gosc {
     public void setWagaMin(int wagaMin) {
         List<Integer> sortedList = getTopingsList();
         Collections.sort(sortedList);
-        wagaMax = sortedList.get(sortedList.size());
+        wagaMin = sortedList.get(sortedList.size());
         this.wagaMin = wagaMin;
     }
+    public int getSuma() {
+        return suma;
+    }
+
+    public void setSuma(int suma) {
+        this.suma = suma;
+    }
+
     private int id;
     private int wagaMax;
     private int wagaMin;
