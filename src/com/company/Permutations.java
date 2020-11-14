@@ -7,18 +7,25 @@ import java.util.List;
 
 public class Permutations {
 
-    List<List<Utwor>> permutation = new ArrayList<>();
+    //List<List<Utwor>> permutation = new ArrayList<>();
+    public int [][]twoDimensoionalElementsTab;
+    public int rows;
+    public int columns;
+    List<Utwor> list;
 
-    public void recursive(int n, List<Utwor> elements) {
+    public Permutations(List<Utwor> list) {
+        this.columns = list.size();
+        this.rows = factorial(columns);
+        this.twoDimensoionalElementsTab = new int[rows][columns];
+        this.list = list;
+    }
 
-    int x = n;
-    int [][]twoDimensoionalElementsTab = new int[factorial(n)][n];
-
+    public void recursive(int n) {
 
         if(n == 1) {
-            for (int i = 0; i < factorial(elements.size()); i++) {
-                for (int j = 0; j < elements.size() ; j++) {
-                    twoDimensoionalElementsTab[i][j] = elements.get(j).getId();
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns ; j++) {
+                    twoDimensoionalElementsTab[i][j] = list.get(j).getId();
                     System.out.printf(" ");
                 }
             }
@@ -26,14 +33,14 @@ public class Permutations {
 
         } else {
             for(int i = 0; i < n-1; i++) {
-                recursive(n - 1, elements);
+                recursive(n - 1);
                 if(n % 2 == 0) {
-                    swap(elements, i, n-1);
+                    swap(list, i, n-1);
                 } else {
-                    swap(elements, 0, n-1);
+                    swap(list, 0, n-1);
                 }
             }
-            recursive(n - 1, elements);
+            recursive(n - 1);
         }
     }
 
@@ -50,12 +57,12 @@ public class Permutations {
         return res;
     }
 
-    public void writeToConsole() {
+    /*public void writeToConsole() {
         for (int i = 0; i < permutation.size(); i++) {
             for (int j = 0; j < permutation.get(0).size(); j++) {
                 System.out.print(permutation.get(i).get(j).getId() + " ");
             }
             System.out.println(permutation.get(i).hashCode());
         }
-    }
+    }*/
 }
