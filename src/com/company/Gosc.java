@@ -4,11 +4,6 @@ import java.util.*;
 
 public class Gosc {
 
-    public int minimalMultiplayer(){
-        List<Integer> sortedList = getTopingsList();
-        Collections.sort(sortedList);
-        return sortedList.get(0);
-    }
     public List<Integer> getTopingsList() {
         return topingsList;
     }
@@ -30,13 +25,20 @@ public class Gosc {
     }
 
     public void setWagaMax(int wagaMax) {
+        List<Integer> sortedList = getTopingsList();
+        Collections.sort(sortedList);
+        wagaMax = sortedList.get(0);
         this.wagaMax = wagaMax;
+
     }
     public int getWagaMin() {
         return wagaMin;
     }
 
     public void setWagaMin(int wagaMin) {
+        List<Integer> sortedList = getTopingsList();
+        Collections.sort(sortedList);
+        wagaMax = sortedList.get(sortedList.size());
         this.wagaMin = wagaMin;
     }
     private int id;

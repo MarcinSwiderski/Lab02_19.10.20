@@ -58,7 +58,7 @@ public class DataReader {
             e.printStackTrace();
             System.out.print("File not found!");
         }
-        for (int i = 0; i < goscie.size() ; i++) {
+        for (int i = 0; i < goscie.size(); i++) {
             System.out.println(goscie.get(i).getLikedMusicNameList());
             System.out.println(goscie.get(i).getTopingsList());
         }
@@ -76,16 +76,16 @@ public class DataReader {
 //                System.out.println("XD2");
                 for (Gosc v : g) {
 //                    System.out.println("X3");
-                    for (int i = 0; i < v.getLikedMusicNameList().size(); i++){
+                    for (int i = 0; i < v.getLikedMusicNameList().size(); i++) {
                         System.out.println(v.getLikedMusicNameList().get(i));
                         if (x.getName().equals(v.getLikedMusicNameList().get(i))) {
                             System.out.println(x.getName());
 //                            v.getMaxZadowolenie().add((v.getTopingsList().get(i) - v.minimalMultiplayer()));
-                            System.out.println(v.getMaxZadowolenie().get(i+1));
-//                        }
-//                }
-//                }
-//            }
-//        }
+//                            System.out.println(v.getMaxZadowolenie().get(i+1));
+                        }
+                    }
+                }
+            }
         }
     }
+}
