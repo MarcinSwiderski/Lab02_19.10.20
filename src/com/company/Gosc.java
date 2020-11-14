@@ -25,8 +25,6 @@ public class Gosc {
 //        Map<String,Integer> i = new HashMap<>();
         nameAndTime.put(x,y);
     }
-
-
     public int getWagaMax() {
         return wagaMax;
     }
@@ -48,6 +46,7 @@ public class Gosc {
     private  List<Integer> topingsList = new ArrayList<Integer>();
     private  List<String> musicNameList = new ArrayList<String>();
     private Map<String,Integer> nameAndTime = new HashMap<>();
+
     //    public String toString() {
 //        return "Id: " + getId() + " Name:" + getName() + " TopingsList: " + getTopingsList()
 //                + " LikedMusicList: " + getLikedMusicNameList();
