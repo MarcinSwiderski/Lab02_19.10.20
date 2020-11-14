@@ -11,8 +11,19 @@ public class Permutations {
 
     public void recursive(int n, List<Utwor> elements) {
 
+    int x = n;
+    int [][]twoDimensoionalElementsTab = new int[factorial(n)][n];
+
+
         if(n == 1) {
-            permutation.add(elements);
+            for (int i = 0; i < factorial(elements.size()); i++) {
+                for (int j = 0; j < elements.size() ; j++) {
+                    twoDimensoionalElementsTab[i][j] = elements.get(j).getId();
+                    System.out.printf(" ");
+                }
+            }
+            System.out.println();
+
         } else {
             for(int i = 0; i < n-1; i++) {
                 recursive(n - 1, elements);
@@ -31,7 +42,13 @@ public class Permutations {
         list.set(a, list.get(b));
         list.set(b, buffer);
     }
-
+    public static int factorial(int n)
+    {
+        int res = 1, i;
+        for (i=2; i<=n; i++)
+            res *= i;
+        return res;
+    }
 
     public void writeToConsole() {
         for (int i = 0; i < permutation.size(); i++) {
