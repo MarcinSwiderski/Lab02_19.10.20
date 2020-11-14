@@ -4,9 +4,9 @@ public class Main {
 
     public static void main(String[] args) {
         DataReader dataReader = new DataReader();
-        dataReader.dataReaderGosci("listaGosci");
         dataReader.dataReaderUtworow("listaUtworow");
-        dataReader.Execute();
+        dataReader.dataReaderGosci("listaGosci");
+//        dataReader.Execute();
 
     }
 }

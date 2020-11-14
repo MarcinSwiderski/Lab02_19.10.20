@@ -42,18 +42,46 @@ public class Gosc {
         this.wagaMin = wagaMin;
     }
     public int getSuma() {
-        return suma;
+        return wagaMax+wagaMin;
     }
 
     public void setSuma(int suma) {
         this.suma = suma;
     }
+    public int zadowolenie(String typMuzyki){
+        for (int i = 0; i < getMusicNameList().size() ; i++) {
+            if(typMuzyki.equals(getMusicNameList().get(i))) {
+                int x = getTopingsList().get(i);
+                return (x-wagaMin)/suma;
+            }
+        }
+        return (0-wagaMin)/suma;
+    }
+    public int niezadowolenie(String typMuzyki){
+        for (int i = 0; i < getMusicNameList().size() ; i++) {
+            if(typMuzyki.equals(getMusicNameList().get(i))) {
+                int x = getTopingsList().get(i);
+                return (wagaMax-x)/suma;
+            }
+        }
+        return wagaMin/suma;
+    }
+
 
     private int id;
     private int wagaMax;
     private int wagaMin;
     private int suma;
     private  List<Integer> topingsList = new ArrayList<Integer>();
+
+    public List<String> getMusicNameList() {
+        return musicNameList;
+    }
+
+    public void setMusicNameList(List<String> musicNameList) {
+        this.musicNameList = musicNameList;
+    }
+
     private  List<String> musicNameList = new ArrayList<String>();
     private Map<String,Integer> nameAndTime = new HashMap<>();
 
