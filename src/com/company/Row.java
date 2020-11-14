@@ -4,20 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 class Row {
-    public String toString() {
-        return getNumber() + ";" + getName() + ";" + getTopingsList();
-    }
 
-    public int getNumber() {
-        return number;
+    private int id;
+    private String name;
+    private List<Integer> topingsList = new ArrayList<Integer>();
+    private List<String> musicNameList = new ArrayList<String>();
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
+    public void setId(int number) {
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -27,13 +29,17 @@ class Row {
     public List<Integer> getTopingsList() {
         return topingsList;
     }
+    public List<String> getLikedMusicNameList(){
+        return musicNameList;
+    }
 
     public void setTopingsList(List<Integer> topingsList) {
         this.topingsList = topingsList;
     }
 
-    private int number;
-    private String name;
-    private List<Integer> topingsList = new ArrayList<Integer>();
 
+    public String toString() {
+        return "Id: " + getId() + "Name:" + getName() + "TopingsList: " + getTopingsList()
+                + "LikedMusicList: " + getLikedMusicNameList();
+    }
 }
