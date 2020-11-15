@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Permutations {
 
-    List<List<Utwor>> permutation = new ArrayList<>();
+    public List<List<Utwor>> permutation = new ArrayList<>();
     private List<Utwor> list;
 
     public Permutations(List<Utwor> list) {
@@ -51,9 +51,9 @@ public class Permutations {
     public void writeToConsole() {
         for (int i = 0; i < permutation.size(); i++) {
             for (int j = 0; j < permutation.get(0).size(); j++) {
-                System.out.print(permutation.get(i).get(j).getId() + " ");
+//                System.out.print(permutation.get(i).get(j).getId() + " ");
             }
-            System.out.println(permutation.get(i).hashCode());
+//            System.out.println(permutation.get(i).hashCode());
         }
     }
 }

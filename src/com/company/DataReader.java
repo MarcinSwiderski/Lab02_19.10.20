@@ -4,7 +4,11 @@ package com.company;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.zip.ZipEntry;
+
 import com.company.Utwor;
+
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 public class DataReader {
     List<Utwor> utwory = new LinkedList<Utwor>();
@@ -57,50 +61,77 @@ public class DataReader {
             e.printStackTrace();
             System.out.print("File not found!");
         }
-//        for (int i = 0; i < utwory.size(); i++) {
-//            System.out.println(utwory.get(i).getName());
-//            System.out.println(utwory.get(i).getTopingsList());
-//        }
-//        System.out.println(utwory.get(1).getId());
-    }
+        for (int i = 0; i < goscie.size(); i++) {
+            List<Integer> sortedList = new ArrayList<>();
+            sortedList.addAll(goscie.get(i).getTopingsList());
+            Collections.sort(sortedList);
+            for (int j = 0; j <sortedList.size() ; j++) {
 
-    public void Execute() {
-//        Humor(utwory, goscie);
-        kazdaZkazda();
-    }
 
-    public void Humor(List<Utwor> u, List<Gosc> g) {
-        {
-//            System.out.println("XD1");
-            for (Utwor x : u) {
-//                System.out.println("XD2");
-                for (Gosc v : g) {
-//                    System.out.println("X3");
-                    for (int i = 0; i < v.getLikedMusicNameList().size(); i++) {
-                        System.out.println(v.getLikedMusicNameList().get(i) + "=========");
-                        System.out.println(x.getName() + "----------------");
-                        if (x.getName().equals(v.getLikedMusicNameList().get(i))) {
-                            System.out.println(x.getName());
-//                            v.getMaxZadowolenie().add((v.getTopingsList().get(i) - v.minimalMultiplayer())/);
-//                            System.out.println(v.getMaxZadowolenie().get(i+1));
-                        }
-                    }
-                }
+                        goscie.get(i).setWagaMin(sortedList.get(0));
+                        System.out.println(goscie.get(i).getWagaMin() + "  Gosc: " + i + " wagaMAX");
+                        goscie.get(i).setWagaMax(sortedList.size());
+                        System.out.println(goscie.get(i).getWagaMax() +" wagaMin");
+        }}
+
+        for (int i = 0; i < goscie.size(); i++) {
+            for (int j = 0; j < goscie.get(i).getLikedMusicNameList().size(); j++) {
+//                System.out.println(zadowolenie(goscie.get(i).getLikedMusicNameList().get(j), goscie.get(i)) + " zad");
+//                System.out.println(niezadowolenie(goscie.get(i).getLikedMusicNameList().get(j), goscie.get(i)) + " niezad");
             }
         }
     }
-    public void kazdaZkazda(){
-        Map<String,String> x =new HashMap<>();
-        int y=0;
-        int z = utwory.size();
-        while(z > 0){
-            for (int i = 0; i < utwory.size() ; i++) {
-                System.out.println(utwory.get(y) + "XDD");
-                x.put(utwory.get(y).getName(),utwory.get(i).getName());
+
+    public double zadowolenie(String typMuzyki, Gosc gosc) {
+        double wynik=0;
+        for (int i = 0; i < gosc.getLikedMusicNameList().size(); i++) {
+            if (typMuzyki.equals(gosc.getLikedMusicNameList().get(i))) {
+                int x = gosc.getTopingsList().get(i);
+                wynik = (x - gosc.getWagaMin()) / (float)gosc.getSuma();
+                return wynik;
             }
-            y++;
-            z--;
         }
-        x.forEach((key, value) -> System.out.println(key + ":" + value));
+        wynik = (0 - gosc.getWagaMin()) / (float)gosc.getSuma();
+
+
+        return wynik;
+    }
+
+    public float niezadowolenie(String typMuzyki, Gosc gosc) {
+        for (int i = 0; i < gosc.getLikedMusicNameList().size(); i++) {
+            if (typMuzyki.equals(gosc.getLikedMusicNameList().get(i))) {
+                System.out.println("niezadowolenie");
+                int x = gosc.getTopingsList().get(i);
+                return (gosc.getWagaMax() - x) / (float)gosc.getSuma();
+            }
+        }
+        return gosc.getWagaMin() / (float)gosc.getSuma();
     }
 }
+//    public void Execute() {
+////        Humor(utwory, goscie);
+//    }}
+
+//    public void Humor(List<Utwor> u, List<Gosc> g) {
+//        {
+////            System.out.println("XD1");
+//            for (Utwor x : u) {
+////                System.out.println("XD2");
+//                for (Gosc v : g) {
+////                    System.out.println("X3");
+//                    for (int i = 0; i < v.getLikedMusicNameList().size(); i++) {
+//                        System.out.println(v.getLikedMusicNameList().get(i) + "=========");
+//                        System.out.println(x.getName() + "----------------");
+//                        if (x.getName().equals(v.getLikedMusicNameList().get(i))) {
+//                            System.out.println(x.getName());
+////                            v.getMaxZadowolenie().add((v.getTopingsList().get(i) - v.minimalMultiplayer())/);
+////                            System.out.println(v.getMaxZadowolenie().get(i+1));
+//
+//                        }
+//                    }
+//                }
+//            }
+//        }}}
+
+
+
