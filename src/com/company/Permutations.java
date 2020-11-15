@@ -7,29 +7,20 @@ import java.util.List;
 
 public class Permutations {
 
-    //List<List<Utwor>> permutation = new ArrayList<>();
-    public int [][]twoDimensoionalElementsTab;
-    public int rows;
-    public int columns;
-    List<Utwor> list;
+    List<List<Utwor>> permutation = new ArrayList<>();
+    private List<Utwor> list;
 
     public Permutations(List<Utwor> list) {
-        this.columns = list.size();
-        this.rows = factorial(columns);
-        this.twoDimensoionalElementsTab = new int[rows][columns];
         this.list = list;
     }
 
     public void recursive(int n) {
 
         if(n == 1) {
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < columns ; j++) {
-                    twoDimensoionalElementsTab[i][j] = list.get(j).getId();
-                    System.out.printf(" ");
-                }
+            permutation.add(permutation.size(), new ArrayList<Utwor>());
+            for (Utwor u : list) {
+                permutation.get(permutation.size()-1).add(u);
             }
-            System.out.println();
 
         } else {
             for(int i = 0; i < n-1; i++) {
@@ -57,12 +48,12 @@ public class Permutations {
         return res;
     }
 
-    /*public void writeToConsole() {
+    public void writeToConsole() {
         for (int i = 0; i < permutation.size(); i++) {
             for (int j = 0; j < permutation.get(0).size(); j++) {
                 System.out.print(permutation.get(i).get(j).getId() + " ");
             }
             System.out.println(permutation.get(i).hashCode());
         }
-    }*/
+    }
 }
