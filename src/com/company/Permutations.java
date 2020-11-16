@@ -54,6 +54,7 @@ public class Permutations {
 //                System.out.print(permutation.get(i).get(j).getId() + " ");
             }
 //            System.out.println(permutation.get(i).hashCode());
+            System.out.println();
         }
     }
 }

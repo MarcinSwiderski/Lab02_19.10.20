@@ -51,8 +51,4 @@ public class Gosc {
     private int wagaMax;
     private int wagaMin;
     private int suma = 100;
-    //    public String toString() {
-//        return "Id: " + getId() + " Name:" + getName() + " TopingsList: " + getTopingsList()
-//                + " LikedMusicList: " + getLikedMusicNameList();
-//    }
 }
