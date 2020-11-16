@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact name="Lab02:jar">
+  <artifact type="jar" build-on-make="true" name="Lab02:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Lab02_jar</output-path>
-    <root id="root">
+    <root id="archive" name="Lab02_jar.jar">
       <element id="archive" name="Lab02.jar">
         <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/../JęzykiProgramowania_Lab2_252780/META-INF/MANIFEST.MF" />
+          <element id="file-copy" path="$PROJECT_DIR$/../META-INF/MANIFEST.MF" />
         </element>
         <element id="module-output" name="Lab02" />
       </element>
